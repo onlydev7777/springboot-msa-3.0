@@ -7,6 +7,7 @@ import com.example.userservice.vo.UserDtoMapper;
 import com.example.userservice.vo.UserRequest;
 import com.example.userservice.vo.UserResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,13 +24,15 @@ public class UserController {
   private final Greeting greeting;
   private final UserService service;
   private final UserDtoMapper mapper;
+  private final Environment env;
 
-  @GetMapping("/health-check")
+  @GetMapping("/user-service/health-check")
   public String status() {
-    return "It's Working in User Service";
+    return String.format("It's Working in User Service on Port %s",
+        env.getProperty("local.server.port"));
   }
 
-  @GetMapping("/welcome")
+  @GetMapping("/user-service/welcome")
   public String welcome() {
     return greeting.getMessage();
   }
