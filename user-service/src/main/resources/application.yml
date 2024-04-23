@@ -1,8 +1,16 @@
-
-
 spring:
   application:
     name: user-service
+
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
 
 server:
   port: 0
@@ -15,3 +23,8 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
+
+
+greeting:
+  message: Welcome to the Simple E-commerce
+
