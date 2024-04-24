@@ -1,6 +1,6 @@
 spring:
   application:
-    name: user-service
+    name: catalog-service
 
   datasource:
     url: jdbc:h2:tcp://localhost/~/testdb
@@ -10,8 +10,17 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
-    show-sql: true
-    generate-ddl: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        highlight_sql: true
+
+  sql:
+    init:
+      data-locations: classpath:data.sql
+      mode: always
 
 server:
   port: 0
@@ -24,8 +33,3 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://127.0.0.1:8761/eureka
-
-
-greeting:
-  message: Welcome to the Simple E-commerce
-
