@@ -1,16 +1,16 @@
-package com.example.catalogservice.dto;
+package com.example.orderservice.dto;
 
+import java.time.LocalDate;
 import lombok.Data;
 
 @Data
-public class CatalogDto {
+public class OrderDto {
 
   private String productId;
-  private String productName;
-  private Integer stock;
   private Integer qty;
   private Integer unitPrice;
   private Integer totalPrice;
+  private LocalDate createdAt;
 
   private String orderId;
   private String userId;

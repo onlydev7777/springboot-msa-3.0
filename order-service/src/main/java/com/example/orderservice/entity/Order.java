@@ -1,4 +1,4 @@
-package com.example.catalogservice.entity;
+package com.example.orderservice.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -11,13 +11,12 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "catalog")
+@Table(name = "orders")
 @Entity
-public class Catalog {
+public class Order {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,24 +25,26 @@ public class Catalog {
   @Column(nullable = false, length = 120, unique = true)
   private String productId;
   @Column(nullable = false)
-  private String productName;
-  @Column(nullable = false)
-  private Integer stock;
+  private Integer qty;
   @Column(nullable = false)
   private Integer unitPrice;
 
+  @Column(nullable = false)
+  private String userId;
+  @Column(nullable = false, unique = true)
+  private String orderId;
+
   @Column(nullable = false, updatable = false)
-  @CreatedDate
   private LocalDate createdAt;
 
   @Builder
-  public Catalog(String productId, String productName, Integer stock, Integer unitPrice,
+  public Order(String productId, Integer qty, Integer unitPrice, String userId, String orderId,
       LocalDate createdAt) {
     this.productId = productId;
-    this.productName = productName;
-    this.stock = stock;
+    this.qty = qty;
     this.unitPrice = unitPrice;
+    this.userId = userId;
+    this.orderId = orderId;
     this.createdAt = createdAt;
   }
 }
-
