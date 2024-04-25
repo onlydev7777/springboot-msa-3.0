@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
-@RequestMapping("user-service")
+@RequestMapping
 @RestController
 public class UserController {
 
@@ -27,6 +27,11 @@ public class UserController {
   private final UserService service;
   private final UserDtoMapper mapper;
   private final Environment env;
+
+  @GetMapping("/")
+  public String root() {
+    return "root";
+  }
 
   @GetMapping("/health-check")
   public String status() {
@@ -52,7 +57,7 @@ public class UserController {
     List<UserResponse> responseList = service.getUserByAll().stream()
         .map(dto -> mapper.toResponse(dto))
         .toList();
-    
+
     return ResponseEntity.ok(responseList);
   }
 
