@@ -8,4 +8,9 @@ spring:
     config:
       server:
         git:
-          uri: file:///Users/kj/IdeaProjects/inflearn-spring-boot-msa/springboot-msa-3.0/git-local-repo
+          uri: https://github.com/onlydev7777/springboot-msa-3.0
+          search-paths:
+            #            - git-config-repo
+            - 'git-config-repo/{application}'
+          default-label: master
+        bootstrap: true
