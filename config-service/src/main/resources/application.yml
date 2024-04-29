@@ -10,7 +10,6 @@ spring:
         git:
           uri: https://github.com/onlydev7777/springboot-msa-3.0
           search-paths:
-            #            - git-config-repo
-            - 'git-config-repo/{application}'
+            - git-config-repo
           default-label: master
         bootstrap: true
