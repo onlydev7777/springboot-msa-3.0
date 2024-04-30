@@ -13,6 +13,12 @@ spring:
     show-sql: true
     generate-ddl: true
 
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
 server:
   port: 0
 
@@ -37,4 +43,4 @@ management:
   endpoints:
     web:
       exposure:
-        include: refresh, health, beans
+        include: refresh, health, beans, busrefresh

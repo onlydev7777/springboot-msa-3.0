@@ -4,16 +4,27 @@ server:
 spring:
   application:
     name: config-service
-  #  profiles:
-  #    active: native
+    profiles:
+      active: native
   cloud:
     config:
       server:
-        #        native:
-        #          search-locations: file://${user.home}/IdeaProjects/inflearn-spring-boot-msa/springboot-msa-3.0/local-config-repo
+        native:
+          search-locations: file://${user.home}/IdeaProjects/inflearn-spring-boot-msa/springboot-msa-3.0/local-config-repo
         git:
           uri: https://github.com/onlydev7777/springboot-msa-3.0
           search-paths:
             - git-config-repo
           default-label: master
         bootstrap: true
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, busrefresh
