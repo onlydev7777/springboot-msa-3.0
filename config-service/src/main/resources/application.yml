@@ -4,9 +4,13 @@ server:
 spring:
   application:
     name: config-service
+  #  profiles:
+  #    active: native
   cloud:
     config:
       server:
+        #        native:
+        #          search-locations: file://${user.home}/IdeaProjects/inflearn-spring-boot-msa/springboot-msa-3.0/local-config-repo
         git:
           uri: https://github.com/onlydev7777/springboot-msa-3.0
           search-paths:
