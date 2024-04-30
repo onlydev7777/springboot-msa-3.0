@@ -1,6 +1,6 @@
 token:
   expiration_time: 86400000
-  secret: ENC(gm4sGmKvZIwUsiSbmqtSSu+zrZU7kmeH)-dev
+  secret: ENC(gm4sGmKvZIwUsiSbmqtSSu+zrZU7kmeH)-dev-changed-#1
 
 gateway:
   ip: 127.0.0.1
