@@ -2,12 +2,14 @@ spring:
   datasource:
     url: jdbc:h2:tcp://localhost/~/testdb
     username: sa
+    #    password: sa
     password: '{cipher}AQBxJvRfvqVqn++UALFX+I8N3qY2ZxK9dSiVFk3Gjfiqv0jedqDVLFEM27WeaBrXThtW6eKgGSbDa4w2h0mQt6G0scfXCEMylUjxTqdyQktxppa2UMNy5occXnc0oDe8h+wsAz+wjrFawSsY3+BkJxkCVBvW0PpqgcXFOvji0WUy5mKG85i24taxJ9hrOpigdt0wkg9UwUfSqe5aFc19eQiDdefKni0ir9IhIz4GUSpxErOACiWZDlphRGnfh4E/Cz1Vf7DW3hGMi2LhPsh1iaBnEQwzYqBIBGgKfspcF7xE09pbbpVLcf33dBlqdTPwYci/hnG1btpsax/fkIP6MeTTTH46HVjHVDWOT7oaPpGJyGRPJcgQ65+9lKNVPBd+Kwk='
     driver-class-name: org.h2.Driver
 
 token:
   expiration_time: 86400000
-  secret: ENC(gm4sGmKvZIwUsiSbmqtSSu+zrZU7kmeH)-local-user-service
+  #  secret: sadfqwfqfasffqwdwqsadfasadsfda21231244fasfas123124qwwqrqr12413-defualt
+  secret: '{cipher}AQAzLp2KBi0fEevVT/uRTuBTE11cj42ZWFxwn2F+owgd8F+gKmVfxiXFsq4Tub1Q2+RWHGp7ExRgUOedrCsSJBRb+hhQ3VYskw0lQYXhL62iYTYM60NovSXx+u12taKN7onVIR/YczLRT3EpRxWMXYy/IqVCfktOBiZEQ3/V5ye1vngp87pZV3MYs08VjtBce7iDedIhhQKVUAjllzMCwwmZJJm6cVrAV+zBxLSHA8ZTPR5X/h7LP+VLj9fktYiaWLlazEl+4hP+gZUcKPQVIzlBphgahfUu4bc3y1P0UEUVArY2w9AgVc+fvSoPVg+pnCUFJ11BcPOCGcRbc5L7tgMTdX9LmaA82l+9qUsJnF0e4BAlwNq/leuqX0wWPLNngYr58nHoMFjR8q3szcrxCGllFzPu12yhsIBON9dd8lV+uN1hSKh+NgTB9Hw9ZruL4VOP27MTNIb6/1Bc4kscNwr9'
 
 gateway:
   ip: 127.0.0.1

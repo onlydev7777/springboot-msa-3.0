@@ -1,6 +1,7 @@
 token:
   expiration_time: 86400000
-  secret: ENC(gm4sGmKvZIwUsiSbmqtSSu+zrZU7kmeH)-prod
+  #  secret: sadfqwfqfasffqwdwqsadfasadsfda21231244fasfas123124qwwqrqr12413-prod
+  secret: '{cipher}AQBg19UXYWOKR+VjlJ5CcdDXqIVUi9X6M0i/IOpuZCm1l+CnI5YfIZ7wmi6Frppho2MGhsvJJXHThsEWVe4Y0na+jir/O6U+wg31mBYh8t9fZnsF9B/HY7v50g7ci08RZrAhB1UU0lkw2C46zcAsMekPLntqDXIhAx0LCcf9iOPJqPSPdiWY/35A0/TqpfAA0n9hPOhYLhVJDqJhLunV68x1CjJaxwZq2nIe9Mtuqpm1g5jxtRGFfdl5qRWQpXLv8q7j0s13OLHYhnqSwZD20skIqsln9bbMgnVy4ru05fYkpmAkTdBSyThKZpBRMymGS0EJOudd9FB9c5cLmcBtqpqUstfGyNb7+a+mYUVooG7OVYKnhstdTbr7C4vq8N+uYO6SEwp7QULAloP6er40A/wn+gKccTtm7UXSn+ciuNPEvTHx8OEchGOMIbbx88hypEKbpbfbPlUWQUG2uAb3rMS3'
 
 gateway:
   ip: 127.0.0.1
