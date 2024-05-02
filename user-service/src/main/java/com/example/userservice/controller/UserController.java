@@ -1,5 +1,6 @@
 package com.example.userservice.controller;
 
+import com.example.userservice.client.OrderServiceClient;
 import com.example.userservice.dto.UserDto;
 import com.example.userservice.service.UserService;
 import com.example.userservice.vo.Greeting;
@@ -9,9 +10,7 @@ import com.example.userservice.vo.UserRequest;
 import com.example.userservice.vo.UserResponse;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.env.Environment;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +31,7 @@ public class UserController {
   private final UserDtoMapper mapper;
   private final Environment env;
   private final RestTemplate restTemplate;
+  private final OrderServiceClient orderServiceClient;
 
   @GetMapping("/")
   public String root() {
@@ -79,11 +79,13 @@ public class UserController {
     String orderUrl = String.format(env.getProperty("order-service.url"), userId);
 
     // rest template
-    ResponseEntity<List<OrderResponse>> orderListResponse = restTemplate.exchange(orderUrl, HttpMethod.GET, null,
-        new ParameterizedTypeReference<>() {
-        });
+//    ResponseEntity<List<OrderResponse>> orderListResponse = restTemplate.exchange(orderUrl, HttpMethod.GET, null,
+//        new ParameterizedTypeReference<>() {
+//        });
+//    List<OrderResponse> orderResponses = orderListResponse.getBody();
 
-    List<OrderResponse> orderResponses = orderListResponse.getBody();
+    // feign client
+    List<OrderResponse> orderResponses = orderServiceClient.getOrders(userId);
     userResponse.setOrders(orderResponses);
 
     return ResponseEntity.ok(userResponse);
