@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:h2:tcp://localhost/~/testdb
     username: sa
-    password: sa
+    password: '{cipher}8e577a1709c899ae908f732cc979ea55c50507dd3d072194c7132eb04ebd568d'
     driver-class-name: org.h2.Driver
 
 token:
