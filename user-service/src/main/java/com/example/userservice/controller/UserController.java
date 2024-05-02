@@ -10,6 +10,7 @@ import com.example.userservice.vo.UserRequest;
 import com.example.userservice.vo.UserResponse;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+@Slf4j
 @RequiredArgsConstructor
 @RequestMapping
 @RestController
@@ -84,7 +86,15 @@ public class UserController {
 //        });
 //    List<OrderResponse> orderResponses = orderListResponse.getBody();
 
-    // feign client
+    // feign client error handling
+//    List<OrderResponse> orderResponses = new ArrayList<>();
+//    try {
+//      orderResponses = orderServiceClient.getOrders(userId);
+//    } catch (FeignClientException fce) {
+//      log.error(fce.getMessage());
+//    }
+
+    // ErrorDecoder
     List<OrderResponse> orderResponses = orderServiceClient.getOrders(userId);
     userResponse.setOrders(orderResponses);
 
