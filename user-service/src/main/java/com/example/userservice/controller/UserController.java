@@ -3,12 +3,15 @@ package com.example.userservice.controller;
 import com.example.userservice.dto.UserDto;
 import com.example.userservice.service.UserService;
 import com.example.userservice.vo.Greeting;
+import com.example.userservice.vo.OrderResponse;
 import com.example.userservice.vo.UserDtoMapper;
 import com.example.userservice.vo.UserRequest;
 import com.example.userservice.vo.UserResponse;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.env.Environment;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 @RequiredArgsConstructor
 @RequestMapping
@@ -27,6 +31,7 @@ public class UserController {
   private final UserService service;
   private final UserDtoMapper mapper;
   private final Environment env;
+  private final RestTemplate restTemplate;
 
   @GetMapping("/")
   public String root() {
@@ -68,6 +73,19 @@ public class UserController {
 
   @GetMapping("/users/{userId}")
   public ResponseEntity<UserResponse> getUserByUserId(@PathVariable String userId) {
-    return ResponseEntity.ok(mapper.toResponse(service.getUserByUserId(userId)));
+    UserDto userDto = service.getUserByUserId(userId);
+    UserResponse userResponse = mapper.toResponse(userDto);
+
+    String orderUrl = String.format(env.getProperty("order-service.url"), userId);
+
+    // rest template
+    ResponseEntity<List<OrderResponse>> orderListResponse = restTemplate.exchange(orderUrl, HttpMethod.GET, null,
+        new ParameterizedTypeReference<>() {
+        });
+
+    List<OrderResponse> orderResponses = orderListResponse.getBody();
+    userResponse.setOrders(orderResponses);
+
+    return ResponseEntity.ok(userResponse);
   }
 }
