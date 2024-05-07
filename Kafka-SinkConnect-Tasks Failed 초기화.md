@@ -10,8 +10,8 @@ Request-Body
     "config" : {
         "connector.class" : "io.confluent.connect.jdbc.JdbcSinkConnector",
         "connection.url":"jdbc:postgresql://localhost:54315/orderlocaldb",
-        "connection.user":"order_real",
-        "connection.password":"qwer1234!",
+        "connection.user":"{db.username}",
+        "connection.password":"{db.password}",
         "auto.create": "true",
         "auto.evolve" : "true",
         "delete.enabled":"false",
@@ -81,8 +81,8 @@ Request-Body
     "config" : {
         "connector.class" : "io.confluent.connect.jdbc.JdbcSinkConnector",
         "connection.url":"jdbc:postgresql://localhost:54315/orderlocaldb",
-        "connection.user":"order_real",
-        "connection.password":"qwer1234!",
+        "connection.user":"{db.username}",
+        "connection.password":"{db.password}",
         "auto.create": "true",
         "auto.evolve" : "true",
         "delete.enabled":"false",
@@ -114,13 +114,13 @@ delete.topic.enable = true
 2. kafka-topics.sh --delete 명령 실행
 
 ```shell
-$KAFKA_HOME/bin $ sh kafka-topics.sh --bootstrap-server {kafka-server} --delete --topic {topic-name}
+$ sh $KAFKA_HOME/bin/kafka-topics.sh --bootstrap-server {kafka-server} --delete --topic {topic-name}
 ```
 
 3. restart connect-distributed
 
 ```shell
-$CONFLUENT_HOME/bin/connect-distributed etc/kafka/connect-distributed.properties
+$ $CONFLUENT_HOME/bin/connect-distributed etc/kafka/connect-distributed.properties
 ```
 
 - tasks 확인
@@ -130,7 +130,7 @@ $CONFLUENT_HOME/bin/connect-distributed etc/kafka/connect-distributed.properties
 4. 이래도 안 되면 zookeeper.sh 명령어 수행하면 된다고 함
 
 ```shell
-$KAFKA_HOME/bin $ sh zookeeper-shell.sh localhost:2181
+$ sh $KAFKA_HOME/bin/zookeeper-shell.sh localhost:2181
 ls /brokers/topics
 [__consumer_offsets, connect-configs, connect-offsets, connect-status, example-catalog-topic, my_topic_users, orders]
 rmr /brokers/topics/{topic-name}
