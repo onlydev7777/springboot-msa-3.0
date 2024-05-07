@@ -28,6 +28,8 @@ public class Order {
   private Integer qty;
   @Column(nullable = false)
   private Integer unitPrice;
+  @Column(nullable = false)
+  private Integer totalPrice;
 
   @Column(nullable = false)
   private String userId;
@@ -38,11 +40,12 @@ public class Order {
   private LocalDate createdAt;
 
   @Builder
-  public Order(String productId, Integer qty, Integer unitPrice, String userId, String orderId,
+  public Order(String productId, Integer qty, Integer unitPrice, Integer totalPrice, String userId, String orderId,
       LocalDate createdAt) {
     this.productId = productId;
     this.qty = qty;
     this.unitPrice = unitPrice;
+    this.totalPrice = totalPrice;
     this.userId = userId;
     this.orderId = orderId;
     this.createdAt = createdAt;

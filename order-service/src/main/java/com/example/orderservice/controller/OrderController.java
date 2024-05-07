@@ -2,12 +2,15 @@ package com.example.orderservice.controller;
 
 import com.example.orderservice.dto.OrderDto;
 import com.example.orderservice.messagequeue.KafkaProducer;
+import com.example.orderservice.messagequeue.OrderProducer;
 import com.example.orderservice.service.OrderService;
 import com.example.orderservice.vo.OrderDtoMapper;
 import com.example.orderservice.vo.OrderRequest;
 import com.example.orderservice.vo.OrderResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -26,6 +29,7 @@ public class OrderController {
 
   private final OrderService service;
   private final KafkaProducer kafkaProducer;
+  private final OrderProducer orderProducer;
   private final OrderDtoMapper mapper;
   private final Environment env;
 
@@ -42,10 +46,14 @@ public class OrderController {
 
     OrderDto dto = mapper.toDto(request);
     dto.setUserId(userId);
-    dto = service.createOrder(dto);
+    dto.setTotalPrice(dto.getQty() * dto.getUnitPrice());
+    dto.setCreatedAt(LocalDate.now());
+    dto.setOrderId(UUID.randomUUID().toString());
+//    dto = service.createOrder(dto);
 
     //send kafka
     kafkaProducer.send("example-catalog-topic", dto);
+    orderProducer.send("orders", dto);
 
     return ResponseEntity.status(HttpStatus.CREATED)
         .body(mapper.toResponse(dto));
