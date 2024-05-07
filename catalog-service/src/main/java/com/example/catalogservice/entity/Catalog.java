@@ -45,5 +45,9 @@ public class Catalog {
     this.unitPrice = unitPrice;
     this.createdAt = createdAt;
   }
+
+  public void decreaseStock(Integer qty) {
+    this.stock = this.stock - qty;
+  }
 }
 
