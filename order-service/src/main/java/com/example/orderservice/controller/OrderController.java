@@ -49,11 +49,11 @@ public class OrderController {
     dto.setTotalPrice(dto.getQty() * dto.getUnitPrice());
     dto.setCreatedAt(LocalDate.now());
     dto.setOrderId(UUID.randomUUID().toString());
-//    dto = service.createOrder(dto);
+    dto = service.createOrder(dto);
 
     //send kafka
-    kafkaProducer.send("example-catalog-topic", dto);
-    orderProducer.send("orders", dto);
+//    kafkaProducer.send("example-catalog-topic", dto);
+//    orderProducer.send("orders", dto);
 
     return ResponseEntity.status(HttpStatus.CREATED)
         .body(mapper.toResponse(dto));

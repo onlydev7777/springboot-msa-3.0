@@ -8,9 +8,12 @@ import com.example.userservice.vo.OrderResponse;
 import com.example.userservice.vo.UserDtoMapper;
 import com.example.userservice.vo.UserRequest;
 import com.example.userservice.vo.UserResponse;
+import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreaker;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +37,7 @@ public class UserController {
   private final Environment env;
   private final RestTemplate restTemplate;
   private final OrderServiceClient orderServiceClient;
+  private final CircuitBreakerFactory circuitBreakerFactory;
 
   @GetMapping("/")
   public String root() {
@@ -95,7 +99,11 @@ public class UserController {
 //    }
 
     // ErrorDecoder
-    List<OrderResponse> orderResponses = orderServiceClient.getOrders(userId);
+//    List<OrderResponse> orderResponses = orderServiceClient.getOrders(userId);
+    CircuitBreaker circuitbreaker = circuitBreakerFactory.create("circuitbreaker");
+    List<OrderResponse> orderResponses = circuitbreaker.run(() -> orderServiceClient.getOrders(userId),
+        throwable -> new ArrayList<>());
+
     userResponse.setOrders(orderResponses);
 
     return ResponseEntity.ok(userResponse);
