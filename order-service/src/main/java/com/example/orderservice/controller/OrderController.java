@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/order-service")
 @RestController
@@ -43,7 +45,7 @@ public class OrderController {
   @PostMapping("/{userId}/orders")
   public ResponseEntity<OrderResponse> createOrder(@PathVariable String userId,
       @RequestBody OrderRequest request) throws JsonProcessingException {
-
+    log.info("Before add orders data");
     OrderDto dto = mapper.toDto(request);
     dto.setUserId(userId);
     dto.setTotalPrice(dto.getQty() * dto.getUnitPrice());
@@ -55,17 +57,24 @@ public class OrderController {
 //    kafkaProducer.send("example-catalog-topic", dto);
 //    orderProducer.send("orders", dto);
 
+    OrderResponse response = mapper.toResponse(dto);
+
+    log.info("After added orders data");
     return ResponseEntity.status(HttpStatus.CREATED)
-        .body(mapper.toResponse(dto));
+        .body(response);
   }
 
   @GetMapping("/{userId}/orders")
   public ResponseEntity<List<OrderResponse>> getOrders(@PathVariable String userId) {
-    return ResponseEntity.ok(
-        service.getOrdersByUserId(userId).stream()
-            .map(dto -> mapper.toResponse(dto))
-            .toList()
-    );
+    log.info("Before retrieve orders data");
+
+    List<OrderResponse> responses = service.getOrdersByUserId(userId).stream()
+        .map(dto -> mapper.toResponse(dto))
+        .toList();
+
+    log.info("After retrieved orders data");
+
+    return ResponseEntity.ok(responses);
   }
 
 }

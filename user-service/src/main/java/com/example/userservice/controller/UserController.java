@@ -100,10 +100,11 @@ public class UserController {
 
     // ErrorDecoder
 //    List<OrderResponse> orderResponses = orderServiceClient.getOrders(userId);
+    log.info("Before call orders microservice");
     CircuitBreaker circuitbreaker = circuitBreakerFactory.create("circuitbreaker");
     List<OrderResponse> orderResponses = circuitbreaker.run(() -> orderServiceClient.getOrders(userId),
         throwable -> new ArrayList<>());
-
+    log.info("After call orders microservice");
     userResponse.setOrders(orderResponses);
 
     return ResponseEntity.ok(userResponse);
