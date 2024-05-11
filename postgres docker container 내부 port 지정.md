@@ -16,7 +16,7 @@ docker run -d -p 54399:54315 -e POSTGRES_PASSWORD=qwer1234! --name postgresdb po
 Dbeaver 클라이언트 프로그램에서 54399 포트로 접속을 시도 해보았으나 "Connection Reset" 오류가 발생하였다.
 
 
-![54399포트-54315포트 커넥션 오류.png](54399포트-54315포트 커넥션 오류.png)
+![54399포트-54315포트 커넥션 오류.png](img/etc/54399포트-54315포트%20커넥션%20오류.png)
 
 ***
 ### 로그를 먼저 확인해보자.
@@ -46,7 +46,7 @@ docker contanier rm {container.id}
 docker run -d -p 54399:5432 -e POSTGRES_PASSWORD=qwer1234! --name postgresdb postgres
 ```
 
-![img.png](54399포트-5432포트 커넥션 정상.png)
+![img.png](img/etc/54399포트-5432포트%20커넥션%20정상.png)
 
 docker container 포트(5432)와 postgresql 기동 포트(5432)를 일치 시켜줬더니 정상접속이 된 걸 확인 할 수 있다.
 
@@ -79,4 +79,4 @@ postgres도 54315 포트로 기동 된 것을 확인 할 수 있다.
 
 ***
 #### 당연히 Dbeaver 에서도 54399 포트로 정상접속이 된다.
-![img.png](54399포트-5432포트 커넥션 정상.png)
+![img.png](img/etc/54399포트-5432포트%20커넥션%20정상.png)
