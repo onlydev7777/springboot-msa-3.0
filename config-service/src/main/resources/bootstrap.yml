@@ -1,6 +1,7 @@
 encrypt:
   #  key: asdfsadfasdsadafasdasfsadasasdasfasdasfsadaf1234514141253514
   key-store:
-    location: file://${user.home}/IdeaProjects/inflearn-spring-boot-msa/springboot-msa-3.0/config-service/apiEncryptionKey.jks
+    #    location: file://${user.home}/IdeaProjects/inflearn-spring-boot-msa/springboot-msa-3.0/config-service/apiEncryptionKey.jks
+    location: file:/apiEncryptionKey.jks
     password: 1q2w3e4r
     alias: apiEncryptionKey
