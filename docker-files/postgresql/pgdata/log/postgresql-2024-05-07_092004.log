@@ -1,0 +1,22 @@
+2024-05-07 09:20:04.404 KST [134] LOG:  starting PostgreSQL 15.6 on x86_64-apple-darwin20.6.0, compiled by Apple clang version 12.0.5 (clang-1205.0.22.9), 64-bit
+2024-05-07 09:20:04.405 KST [134] LOG:  listening on IPv6 address "::", port 54315
+2024-05-07 09:20:04.405 KST [134] LOG:  listening on IPv4 address "0.0.0.0", port 54315
+2024-05-07 09:20:04.406 KST [134] LOG:  listening on Unix socket "/tmp/.s.PGSQL.54315"
+2024-05-07 09:20:04.425 KST [292] LOG:  database system was interrupted; last known up at 2024-05-04 00:39:03 KST
+2024-05-07 09:20:05.049 KST [292] LOG:  database system was not properly shut down; automatic recovery in progress
+2024-05-07 09:20:05.073 KST [292] LOG:  redo starts at 0/2B1D120
+2024-05-07 09:20:05.073 KST [292] LOG:  invalid record length at 0/2B1D208: wanted 24, got 0
+2024-05-07 09:20:05.073 KST [292] LOG:  redo done at 0/2B1D1D0 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2024-05-07 09:20:05.081 KST [290] LOG:  checkpoint starting: end-of-recovery immediate wait
+2024-05-07 09:20:05.088 KST [290] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.007 s, sync=0.001 s, total=0.008 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2024-05-07 09:20:05.095 KST [134] LOG:  database system is ready to accept connections
+2024-05-07 14:58:23.512 KST [290] LOG:  checkpoint starting: time
+2024-05-07 14:58:23.928 KST [290] LOG:  checkpoint complete: wrote 5 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.409 s, sync=0.001 s, total=0.417 s; sync files=4, longest=0.001 s, average=0.001 s; distance=20 kB, estimate=20 kB
+2024-05-07 15:28:23.854 KST [290] LOG:  checkpoint starting: time
+2024-05-07 15:28:24.882 KST [290] LOG:  checkpoint complete: wrote 11 buffers (0.1%); 0 WAL file(s) added, 0 removed, 0 recycled; write=1.020 s, sync=0.002 s, total=1.028 s; sync files=9, longest=0.001 s, average=0.001 s; distance=16 kB, estimate=20 kB
+2024-05-07 17:51:27.788 KST [134] LOG:  received smart shutdown request
+2024-05-07 17:51:27.933 KST [134] LOG:  background worker "logical replication launcher" (PID 336) exited with exit code 1
+2024-05-07 17:51:28.031 KST [290] LOG:  shutting down
+2024-05-07 17:51:28.087 KST [290] LOG:  checkpoint starting: shutdown immediate
+2024-05-07 17:51:28.155 KST [290] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.125 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=18 kB
+2024-05-07 17:51:28.160 KST [134] LOG:  database system is shut down

@@ -1,0 +1,16 @@
+2024-05-10 16:24:55.001 KST [59319] LOG:  starting PostgreSQL 16.3 on x86_64-apple-darwin20.6.0, compiled by Apple clang version 12.0.5 (clang-1205.0.22.9), 64-bit
+2024-05-10 16:24:55.002 KST [59319] LOG:  listening on IPv6 address "::", port 54316
+2024-05-10 16:24:55.002 KST [59319] LOG:  listening on IPv4 address "0.0.0.0", port 54316
+2024-05-10 16:24:55.002 KST [59319] LOG:  listening on Unix socket "/tmp/.s.PGSQL.54316"
+2024-05-10 16:24:55.005 KST [59324] LOG:  database system was shut down at 2024-05-10 16:24:54 KST
+2024-05-10 16:24:55.007 KST [59319] LOG:  database system is ready to accept connections
+2024-05-10 16:29:55.990 KST [59322] LOG:  checkpoint starting: time
+2024-05-10 16:30:03.113 KST [59322] LOG:  checkpoint complete: wrote 73 buffers (0.4%); 0 WAL file(s) added, 0 removed, 0 recycled; write=7.118 s, sync=0.002 s, total=7.123 s; sync files=31, longest=0.001 s, average=0.001 s; distance=398 kB, estimate=398 kB; lsn=0/156CEC0, redo lsn=0/1567500
+2024-05-10 16:40:51.703 KST [62975] LOG:  invalid length of startup packet
+2024-05-10 16:41:09.269 KST [63254] LOG:  invalid length of startup packet
+2024-05-10 17:22:42.266 KST [59319] LOG:  received smart shutdown request
+2024-05-10 17:22:42.272 KST [59319] LOG:  background worker "logical replication launcher" (PID 59327) exited with exit code 1
+2024-05-10 17:22:42.492 KST [59322] LOG:  shutting down
+2024-05-10 17:22:42.514 KST [59322] LOG:  checkpoint starting: shutdown immediate
+2024-05-10 17:22:42.565 KST [59322] LOG:  checkpoint complete: wrote 4 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.037 s, sync=0.001 s, total=0.073 s; sync files=2, longest=0.001 s, average=0.001 s; distance=22 kB, estimate=361 kB; lsn=0/156CF70, redo lsn=0/156CF70
+2024-05-10 17:22:42.569 KST [59319] LOG:  database system is shut down

@@ -1,0 +1,14 @@
+2024-04-25 08:21:09.714 KST [134] LOG:  starting PostgreSQL 15.6 on x86_64-apple-darwin20.6.0, compiled by Apple clang version 12.0.5 (clang-1205.0.22.9), 64-bit
+2024-04-25 08:21:09.714 KST [134] LOG:  listening on IPv6 address "::", port 54315
+2024-04-25 08:21:09.714 KST [134] LOG:  listening on IPv4 address "0.0.0.0", port 54315
+2024-04-25 08:21:09.715 KST [134] LOG:  listening on Unix socket "/tmp/.s.PGSQL.54315"
+2024-04-25 08:21:09.725 KST [353] LOG:  database system was shut down at 2024-04-24 17:22:39 KST
+2024-04-25 08:21:09.729 KST [134] LOG:  database system is ready to accept connections
+2024-04-25 08:26:09.982 KST [351] LOG:  checkpoint starting: time
+2024-04-25 08:26:09.989 KST [351] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.007 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB
+2024-04-25 17:25:26.128 KST [134] LOG:  received smart shutdown request
+2024-04-25 17:25:26.295 KST [134] LOG:  background worker "logical replication launcher" (PID 356) exited with exit code 1
+2024-04-25 17:25:26.445 KST [351] LOG:  shutting down
+2024-04-25 17:25:26.466 KST [351] LOG:  checkpoint starting: shutdown immediate
+2024-04-25 17:25:26.472 KST [351] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.007 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB
+2024-04-25 17:25:26.478 KST [134] LOG:  database system is shut down
