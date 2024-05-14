@@ -1,5 +1,0 @@
-2024-04-26 00:02:34.158 KST [134] LOG:  background worker "logical replication launcher" (PID 329) exited with exit code 1
-2024-04-26 00:02:34.276 KST [324] LOG:  shutting down
-2024-04-26 00:02:34.276 KST [324] LOG:  checkpoint starting: shutdown immediate
-2024-04-26 00:02:34.304 KST [324] LOG:  checkpoint complete: wrote 0 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.001 s, total=0.029 s; sync files=0, longest=0.000 s, average=0.000 s; distance=0 kB, estimate=0 kB
-2024-04-26 00:02:34.308 KST [134] LOG:  database system is shut down

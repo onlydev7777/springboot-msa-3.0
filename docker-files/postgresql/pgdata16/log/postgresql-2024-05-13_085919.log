@@ -1,8 +1,0 @@
-2024-05-13 08:59:19.306 KST [139] LOG:  starting PostgreSQL 16.3 on x86_64-apple-darwin20.6.0, compiled by Apple clang version 12.0.5 (clang-1205.0.22.9), 64-bit
-2024-05-13 08:59:19.308 KST [139] LOG:  listening on IPv6 address "::", port 54316
-2024-05-13 08:59:19.308 KST [139] LOG:  listening on IPv4 address "0.0.0.0", port 54316
-2024-05-13 08:59:19.309 KST [139] LOG:  listening on Unix socket "/tmp/.s.PGSQL.54316"
-2024-05-13 08:59:19.332 KST [314] LOG:  database system was shut down at 2024-05-12 00:03:54 KST
-2024-05-13 08:59:19.344 KST [139] LOG:  database system is ready to accept connections
-2024-05-13 09:04:19.033 KST [312] LOG:  checkpoint starting: time
-2024-05-13 09:04:19.038 KST [312] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.002 s, sync=0.001 s, total=0.005 s; sync files=2, longest=0.001 s, average=0.001 s; distance=0 kB, estimate=0 kB; lsn=0/156F140, redo lsn=0/156F108
