@@ -1,0 +1,22 @@
+version: "3"
+
+networks:
+  ecommerce-network:
+    external: true
+
+services:
+  postgres:
+    image: postgres:16.3
+    restart: always
+    container_name: order-db
+    ports:
+      - 54399:54316
+    networks:
+      - ecommerce-network
+    environment:
+      PGPORT: 54316
+      POSTGRES_USER: order_real
+      POSTGRES_PASSWORD: qwer1234!
+      POSTGRES_DB: orderlocaldb
+    volumes:
+      - "./init:/docker-entrypoint-initdb.d/"
