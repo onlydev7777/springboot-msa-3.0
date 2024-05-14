@@ -3,10 +3,12 @@ spring:
     name: catalog-service
 
   datasource:
-    url: jdbc:h2:tcp://localhost:9099/~/testdb
-    username: sa
-    password: sa
-    driver-class-name: org.h2.Driver
+    #    url: jdbc:h2:tcp://localhost:9099/~/testdb
+    #    url: jdbc:h2:tcp://h2db:1521/~./testdb
+    url: jdbc:postgresql://catalog-db:54316/cataloglocaldb
+    username: catalog_real
+    password: qwer1234!
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: create
