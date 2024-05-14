@@ -8,7 +8,7 @@ spring:
     #    driver-class-name: org.h2.Driver
     url: jdbc:postgresql://user-db:54316/userlocaldb
     username: user_real
-    password: qwer1234!
+    password: '{cipher}AQBxuV51450yCph7gxm51lE/Z0QdwpoTFrVUpdEIkqGRZaZ0mFmfqyn63/vjI8Q/3A2zbQVxsjmT0AnczyJUlTzEiegMgUooAzuXZu1vgCHLMEbTMPD0myMPj1J7cjMk2xOf5MNoZ0V8N88g9omx3E0Hlw0ofO2mjYsBvICC9+5/gTHBux9KYfJvcphF7LqwZql/IqZM4/JXNH4bVQV7GOLivzQTa5fyAgNJ5nAgnWPJ4vs1Nu0+JPQjmxNF0/FW9mOxjDSCfv2Nf2O+Mmah+Tkqy96J4kFFuFTnRrUMPWdU4LT9yznKYbyIb/fyvBy5qNN+ZoMsvKmf2s9Zg3gCw4M1MlbkhMqmQs+AzMjku9+rsoK9NRnM2GlsRoe45SoITcU='
     driver-class-name: org.postgresql.Driver
 
 token:
