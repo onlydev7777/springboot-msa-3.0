@@ -15,7 +15,7 @@ import org.springframework.data.annotation.CreatedDate;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "catalog")
+@Table(name = "catalogs")
 @Entity
 public class Catalog {
 
