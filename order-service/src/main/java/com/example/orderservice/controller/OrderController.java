@@ -54,7 +54,7 @@ public class OrderController {
     dto = service.createOrder(dto);
 
     //send kafka
-//    kafkaProducer.send("example-catalog-topic", dto);
+    kafkaProducer.send("example-catalog-topic", dto);
 //    orderProducer.send("orders", dto);
 
     OrderResponse response = mapper.toResponse(dto);
