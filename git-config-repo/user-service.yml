@@ -18,7 +18,7 @@ token:
 
 gateway:
   #  ip: 127.0.0.1
-  ip: 172.18.0.5
+  ip: apigateway-service
 
 order-service:
   url: http://ORDER-SERVICE/order-service/%s/orders
