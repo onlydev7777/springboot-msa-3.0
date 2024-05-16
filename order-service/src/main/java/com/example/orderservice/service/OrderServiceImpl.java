@@ -21,6 +21,7 @@ public class OrderServiceImpl implements OrderService {
   private final OrderMapper mapper;
 
   @Override
+  @Transactional
   public OrderDto createOrder(OrderDto dto) {
     dto.setOrderId(UUID.randomUUID().toString());
     dto.setTotalPrice(dto.getQty() * dto.getUnitPrice());
